@@ -1,0 +1,57 @@
+/* default styling to begin */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
+}
+
+/* focus on second largest object, being the body - not a class name apparently */
+body {
+    background: #001e4d;
+}
+
+/* .app will be the self created container for the whole project- class name */
+
+/* background colour, set width of container, max-width relative if screen size ends up massive, set margin properties for page positioning, border radius will round the object, padding will provide space for elements inside and bezzle */
+.app {
+    background: #fff;
+    width: 90%;
+    max-width: 600px;
+    margin: 100px auto 0;
+    border-radius: 10px;
+    padding: 30px;
+}
+
+/* change font size of h1 heading in app, change the text colour and make text bold, provide a border at the bottom just a line to seperate clearly from elements below and provide padding so there is space between items */
+.app h1 {
+    font-size: 25px;
+    color: #001e4d;
+    font-weight: 600;
+    border-bottom: 1px solid #333;
+    padding-bottom: 30px;
+}
+
+.quiz {
+    padding: 20px 0;
+}
+
+.quiz h2 {
+    font-size: 18px;
+    color: #001e4d;
+    font-weight: 300;
+}
+
+/* button elements, make background white, text color black, make bold, cover button full width, apply a border, padding for internal elements and margin for space between buttons, align text left of page with a border radius to round edges of button and make cursor a pointer */
+.btn {
+    background: #fff;
+    color: #222;
+    font-weight: 500;
+    width: 100%;
+    border: 1px solid #222;
+    padding: 10px;
+    margin: 10px 0;
+    text-align: left;
+    border-radius: 4px;
+    cursor: pointer;
+}
