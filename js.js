@@ -33,7 +33,7 @@ const questions = [
                 text: "Vatican City", correct: true
             },
             {
-                text: "Nepal", correct: true
+                text: "Nepal", correct: false
             },
             {
                 text: "Lithuania", correct: false
@@ -50,7 +50,7 @@ const questions = [
                 text: "Gobi", correct: false
             },
             {
-                text: "Sahara", correct: true
+                text: "Sahara", correct: false
             },
             {
                 text: "Kalahari", correct: false
@@ -143,6 +143,8 @@ function selectAnswer(e){
     const isCorrect = selectBtn.dataset.correct === "true";
     if (isCorrect) {
         selectBtn.classList.add("correct");
+        // increase score when correct
+        score++;
     } else {
         selectBtn.classList.add("incorrect");
     }
@@ -155,5 +157,29 @@ function selectAnswer(e){
     });
     nextBtn.style.display = "block";
 }
+
+function showScore() {
+    resetState();
+    questionElement.innerHTML = `You scored ${score} out of ${questions.length}.`;
+    nextBtn.innerHTML = "play again";
+    nextBtn.style.display = "block";
+}
+
+function handleNextBtn() {
+    currentQuestionIndex++;
+    if(currentQuestionIndex < questions.length) {
+        showQuestions();
+    } else {
+        showScore();
+    }
+}
+
+nextBtn.addEventListener("click", ()=> {
+    if (currentQuestionIndex < questions.length) {
+        handleNextBtn();
+    } else {
+        startQuiz();
+    }
+});
 
 startQuiz();

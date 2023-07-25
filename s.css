@@ -58,10 +58,16 @@ body {
 }
 
 /* on hover effect to change both text and background color inversing colours and transition effect */
-.btn:hover {
+/* hover effect to run when btn is not disabled */
+.btn:hover:not([disabled]){
     background: #222;
     color: #fff;
     transition: 0.3s;
+}
+
+/* changes cursor to a no sign */
+.btn:disabled{
+    cursor: no-drop;
 }
 
 /* set background color, set text color, set to bold, width of button, set border and provide padding and margin, round edges, set cursor and remove button from display */
