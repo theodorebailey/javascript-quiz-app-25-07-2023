@@ -42,7 +42,7 @@ body {
     font-weight: 300;
 }
 
-/* button elements, make background white, text color black, make bold, cover button full width, apply a border, padding for internal elements and margin for space between buttons, align text left of page with a border radius to round edges of button and make cursor a pointer */
+/* button elements, make background white, text color black, make bold, cover button full width, apply a border, padding for internal elements and margin for space between buttons, align text left of page with a border radius to round edges of button and make cursor a pointer, set transition for hover effect in hover section*/
 .btn {
     background: #fff;
     color: #222;
@@ -54,4 +54,29 @@ body {
     text-align: left;
     border-radius: 4px;
     cursor: pointer;
+    
 }
+
+/* on hover effect to change both text and background color inversing colours and transition effect */
+.btn:hover {
+    background: #222;
+    color: #fff;
+    transition: 0.3s;
+}
+
+/* set background color, set text color, set to bold, width of button, set border and provide padding and margin, round edges, set cursor and remove button from display */
+#next-btn {
+    background: #001e4d;
+    color: #fff;
+    font-weight: 500;
+    width: 150px;
+    border: 0;
+    padding: 10px;
+    margin: 20px auto 0;
+    border-radius: 4px;
+    cursor: pointer;
+    display: none;
+}
+
+
+
