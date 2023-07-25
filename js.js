@@ -97,6 +97,9 @@ function startQuiz() {
 
 // function ti display question
 function showQuestions() {
+
+    // call function before declaration
+    resetState();
     // current question = questions array with current index which will be incremented
     let currentQuestion = questions[currentQuestionIndex];
     // let question number is currentQuestionIndex + 1 to display to user
@@ -113,7 +116,36 @@ function showQuestions() {
         btn.classList.add("btn");
         answerBtn.appendChild(btn);
 
+        if (answer.correct) {
+            btn.dataset.correct = answer.correct;
+        }
+            btn.addEventListener("click", selectAnswer);
+
     });
+}
+
+// resetState will remove old buttons
+function resetState(){
+    // set display to none on nextBtns
+    nextBtn.style.display = "none";
+    // while answerBtn.firstChild truthy
+    while (answerBtn.firstChild) {
+        // remove first child element of answerBtns
+        answerBtn.removeChild(answerBtn.firstChild);
+    }
+}
+
+
+// function selectAnswer with parameter of event.
+// select button is event.target property, isCorrect is select button dataset properties correct property to find if question is true, if isCorrect is truet then the selected button is given a class of correct, else incorrect
+function selectAnswer(e){
+    const selectBtn = e.target;
+    const isCorrect = selectBtn.dataset.correct === "true";
+    if (isCorrect) {
+        selectBtn.classList.add("correct");
+    } else {
+        selectBtn.classList.add("incorrect");
+    }
 }
 
 startQuiz();
