@@ -1,12 +1,10 @@
-
+// add booeing to wrong answers
+// add confetti to correct answers with cheers
 
 const questionElement = document.getElementById("question");
 const answerBtn = document.getElementById("answer-btn");
 const nextBtn = document.getElementById("next-btn");
-
-// console.log(questionElement);
-// console.log(answerBtn);
-// console.log(nextBtn);
+const timerEle = document.getElementById("timer");
 
 const questions = [
     {
@@ -76,6 +74,23 @@ const questions = [
                 text: "Africa", correct: false
             },
         ]
+    },
+    {
+        question: "What is the smallest desert in the world?",
+        answers: [
+            {
+                text: "Carcross", correct: true
+            },
+            {
+                text: "Kalahari", correct: false
+            },
+            {
+                text: "Sahara", correct: false
+            },
+            {
+                text: "Gobi", correct: false
+            },
+        ]
     }
 ];
 
@@ -93,6 +108,9 @@ function startQuiz() {
     nextBtn.innerHTML = "next";
     // execute show questions functions to display quiz questions
     showQuestions();
+
+    startTimer(60, timerEle);
+
 }
 
 // function ti display question
@@ -116,6 +134,7 @@ function showQuestions() {
         btn.classList.add("btn");
         answerBtn.appendChild(btn);
 
+        // if answer with key correct is equal to true
         if (answer.correct) {
             btn.dataset.correct = answer.correct;
         }
@@ -148,7 +167,8 @@ function selectAnswer(e){
     } else {
         selectBtn.classList.add("incorrect");
     }
-
+    
+    // 
     Array.from(answerBtn.children).forEach(button => {
         if (button.dataset.correct === "true"){
             button.classList.add("correct");
@@ -181,5 +201,27 @@ nextBtn.addEventListener("click", ()=> {
         startQuiz();
     }
 });
+
+
+function startTimer(duration, element) {
+
+    let time = duration;
+    let minutes = 0;
+    let seconds = 0;
+
+    setInterval(function () {
+
+        seconds = parseInt(time % 60, 10);
+
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        element.innerHTML = minutes + ":" + seconds;
+
+        if (--time < 0) {
+            time = duration;
+            ++minutes;
+        }
+    }, 1000);
+}
 
 startQuiz();
